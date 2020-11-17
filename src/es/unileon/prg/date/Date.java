@@ -114,6 +114,22 @@ public class Date {
         }
     }
 
+	public boolean isSameDay2(Date other){
+		return this.getDay() == other.getDay();
+	}
+
+	public boolean isSameMonth2(Date other){
+		return this.getMonth() == other.getMonth();
+	}
+
+	public boolean isSameYear2(Date other){
+		return this.getYear() == other.getYear();
+	}
+
+	public boolean isSame2(Date other){
+		return isSameDay2(other)&& isSameMonth2(other) && isSameYear2(other);
+	}
+
     public String getMonthName() {
         
         StringBuilder input =  new StringBuilder();
@@ -251,7 +267,7 @@ public class Date {
 			case 12:
 				for(int i=this.day+1; i<=31 ; ++i ) {
 					
-					input.append(i + "/"+ this.month+"/"+this.year);
+					input.append(i + "/" + this.month + "/" + this.year);
 					input.append(" ");
 				}
 				break;
@@ -261,14 +277,14 @@ public class Date {
 			case 11:
 				for (int i=this.day+1; i<=30 ; ++i ) {
 					
-					input.append(i + "/"+ this.month+"/"+this.year);
+					input.append(i + "/" + this.month + "/" + this.year);
 					input.append(" ");
 				}
 				break;
             case 2:
 				for(int i=this.day+1; i<=28 ; ++i ) {
 					
-					input.append(i + "/"+ this.month+"/"+this.year);
+					input.append(i + "/" + this.month + "/" + this.year);
 					input.append(" ");
 				}
 				break;
@@ -334,6 +350,69 @@ public class Date {
 
 		return diasPasados;
 	}
-	int o = 0;
+
+	public int numAttempsNeeded() {	
+		
+		int diaAleatorio=365;
+		int attempts =0;
+		
+		while(this.daysSinceFirstDayOfYear() != diaAleatorio) {
+			diaAleatorio = (int)(Math.random()*365);
+			attempts++;
+		}
+		return attempts;
+	}
+
+	public int numAttempsNeeded2() {
+		
+		int diaAleatorio=365;
+		int attempts =0;
+
+		if(this.daysSinceFirstDayOfYear() == diaAleatorio) {
+			return attempts=1;
+		}else{
+		do {
+			attempts =1;
+			diaAleatorio =(int)(Math.random()*365);
+			attempts++;
+		}while(this.daysSinceFirstDayOfYear() != diaAleatorio);
+		return attempts;
+		}
+	}
+
+	public String dayOfTheWeek(int firstDayOfYear){
+
+		StringBuilder input = new StringBuilder();
+		int diaSemana = (this.daysSinceFirstDayOfYear()%7)+firstDayOfYear;
+		
+			switch (diaSemana) {
+				case 7:
+					input.append("Sunday");
+					break;
+				case 1:
+					input.append("Monday");
+					break;
+				case 2:
+					input.append("Tuesday");
+					break;
+				case 3:	
+					input.append("Wednesday");
+					break;
+				case 4:
+					input.append("Thursday");
+					break;
+				case 5:
+					input.append("Friday");
+					break;
+				case 6:
+					input.append("Saturday");
+					break;
+			}
+		return input.toString();
+	}
+
+	
+	
+	
 }
 

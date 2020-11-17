@@ -380,10 +380,10 @@ public class Date {
 		}
 	}
 
-	public String dayOfTheWeek(int firstDayOfYear){
+	public String dayOfTheWeek(int primerDiaAnyo){
 
 		StringBuilder input = new StringBuilder();
-		int diaSemana = (this.daysSinceFirstDayOfYear()%7)+firstDayOfYear;
+		int diaSemana = (this.daysSinceFirstDayOfYear()%7)+primerDiaAnyo;
 		
 			switch (diaSemana) {
 

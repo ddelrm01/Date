@@ -386,26 +386,27 @@ public class Date {
 		int diaSemana = (this.daysSinceFirstDayOfYear()%7)+firstDayOfYear;
 		
 			switch (diaSemana) {
-				case 7:
-					input.append("Sunday");
-					break;
+
 				case 1:
-					input.append("Monday");
+					input.append("Lunes");
 					break;
 				case 2:
-					input.append("Tuesday");
+					input.append("Martes");
 					break;
 				case 3:	
-					input.append("Wednesday");
+					input.append("Miercoles");
 					break;
 				case 4:
-					input.append("Thursday");
+					input.append("Jueves");
 					break;
 				case 5:
-					input.append("Friday");
+					input.append("Viernes");
 					break;
 				case 6:
-					input.append("Saturday");
+					input.append("Sabado");
+					break;
+				case 7:
+					input.append("Domingo");
 					break;
 			}
 		return input.toString();
